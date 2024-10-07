@@ -1,12 +1,9 @@
-#
-#  Copyright (c) 2016, The OpenThread Authors.
-#  All rights reserved.
 import sqlite3
-conn = sqlite3.connect('s.db')
-c = conn.cursor()
-print(c.fetchall())
+conn = sqlite3.connect('sort.db')
+cursor = conn.cursor()
+
+cursor.execute("SELECT * FROM posts")
+print(cursor.fetchall())
+cursor.close()
 conn.close()
 print("Hello World")
-
-
-
