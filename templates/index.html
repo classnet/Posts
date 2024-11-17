@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+    <h1>Posts</h1>
+    <a href="{{ url_for('create') }}">新增</a>
+    {% for post in posts %}
+       <a href="{{ url_for('post', title=post['title']) }}">{{ post['title'] }}</a>
+    {% endfor %}
+{% endblock %}

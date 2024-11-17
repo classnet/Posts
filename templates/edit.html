@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+    <h1>编程条目</h1>
+    <form action="{{ url_for('edit', id=post['id']) }}" method="post" onsubmit="replaceBreaks()">
+        <label for="title">标题：</label><br>
+        <input type="text" id="title" name="title" value="{{ post['title'] }}" required><br>
+        <label for="content">内容:</label><br>
+        <textarea id="content" name="content" rows="10" cols="100" required>{{ post['content'] }} </textarea><br>
+        <input type="submit" value="修改" onclick="return confirm('确定要修改吗？')">
+    </form>
+    <a href="{{ url_for('index') }}">返回首页</a>
+
+{% endblock %}

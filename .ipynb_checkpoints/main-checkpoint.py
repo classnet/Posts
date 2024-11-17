@@ -38,7 +38,6 @@ def create():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
-        #content = content.replace('\n', '<br>')  # 替换换行符为<br>
         conn = get_db_connection()
         conn.execute('INSERT INTO posts (title, content) VALUES (?,?)', (title, content))
         conn.commit()
